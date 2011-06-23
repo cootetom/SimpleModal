@@ -1,0 +1,34 @@
+<html>
+
+<head>
+<title>Simple Modal Demo</title>
+
+<script language="JavaScript" src="jquery-1.6.1.min.js"></script>
+<script language="JavaScript" src="SimpleModal.js"></script>
+
+<style type="text/css">
+
+span {
+	color:blue;
+	cursor:pointer;
+}
+span:hover {
+	text-decoration:underline;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Simple Modal Example</h1>
+
+<p><span onclick="SimpleModal.open('demo1.html', 500, 600, function(data) { alert(data); });">Click here</span> to open a simple modal window.</p>
+
+<xmp>SimpleModal.open('demo1.html', 500, 600, function(data) { alert(data); });</xmp>
+
+<div style="height:800px;">&nbsp; <!-- to test scroll bar behaviour in the parent window --></div>
+</body>
+
+</html>

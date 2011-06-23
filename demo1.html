@@ -1,0 +1,35 @@
+<html>
+
+<head>
+<title>Simple Modal Demo</title>
+
+<script language="JavaScript" src="jquery-1.6.1.min.js"></script>
+<script language="JavaScript" src="SimpleModal.js"></script>
+
+<style type="text/css">
+
+span {
+	color:blue;
+	cursor:pointer;
+}
+span:hover {
+	text-decoration:underline;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<p>This is a modal window. <span onclick="SimpleModal.open('demo2.html', 400, 750);">Click here</span> to open another one.</p>
+<xmp>SimpleModal.open('demo2.html', 400, 750);</xmp>
+
+<br />
+<p>Below I've added the link to close this modal.</p>
+<p><span onclick="SimpleModal.close('data passed from modal to opener');">close</span></p>
+<xmp>SimpleModal.close('data passed from modal to opener');</xmp>
+
+</body>
+
+</html>
