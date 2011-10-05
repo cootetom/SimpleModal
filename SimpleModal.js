@@ -46,9 +46,8 @@ var SimpleModal = function() {
 			if (typeof topWin.SimpleModal !== 'object') {
 				alert('Simple modals need the JavaScript available in the modal window itself.');
 			} else {
-				topWin.SimpleModal.open(url, height, width, callback);
+				return topWin.SimpleModal.open(url, height, width, callback);
 			}
-			return;
 		}
 
 		// sort out ie bugs
@@ -57,10 +56,8 @@ var SimpleModal = function() {
 		}
 		
 		// prevent parent from scrolling whilst pop up is overlayed on top
-		var overflow = $(document.body).css('overflow').toLowerCase();
-		if (overflow === 'visible' || overflow === 'scroll') {
-			$(document.body).data('simpleModalOverflow', overflow);
-		}
+		var overflow = $(document.body).css('overflow').toLowerCase() || 'visible';
+		$(document.body).data('simpleModalOverflow', overflow);
 		$(document.body).css('overflow', 'hidden');
 
 		var mask = document.createElement('div'),
@@ -105,6 +102,7 @@ var SimpleModal = function() {
 		});
 		
 		that.callbacks.push(callback);
+		return false;
 	};
 	
 	/**
@@ -119,9 +117,8 @@ var SimpleModal = function() {
 			if (typeof topWin.SimpleModal !== 'object') {
 				alert('Simple modals need the JavaScript available in the top window.');
 			} else {
-				topWin.SimpleModal.close(data);
+				return topWin.SimpleModal.close(data);
 			}
-			return;
 		}
 	
 		$('div._simpleModal:last').remove();
@@ -145,6 +142,7 @@ var SimpleModal = function() {
 				fn(data);
 			}
 		}
+		return false;
 	};
 	
 	that.isController = false;
