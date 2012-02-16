@@ -56,10 +56,12 @@ var SimpleModal = function() {
 		}
 		
 		// prevent parent from scrolling whilst pop up is overlayed on top
-		var overflow = $(document.body).css('overflow').toLowerCase() || 'visible';
-		$(document.body).data('simpleModalOverflow', overflow);
-		$(document.body).css('overflow', 'hidden');
-
+		if ($('._simpleModalMask').length < 1) {
+			var overflow = $(document.body).css('overflow').toLowerCase() || 'visible';
+			$(document.body).data('simpleModalOverflow', overflow);
+			$(document.body).css('overflow', 'hidden');
+		}
+	
 		var mask = document.createElement('div'),
 			eDiv = document.createElement('div');
 		
